@@ -7,7 +7,7 @@ const bodyParser = require("body-parser")
 const app = express();
 
 app.use(courseRouter);
-app.use(bodyParser);
+app.use(bodyParser.json());
 
 mongoose.connect(process.env.DB_CONNECTION_URL, () => {
     console.log("Connected to the db successfully")
