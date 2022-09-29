@@ -63,7 +63,8 @@ module.exports = {
                 data.number,
                 data.id
 
-            ], (error, results, fields) => {
+            ], 
+            (error, results, fields) => {
                 if(error) {
                     callBack(error);
                 }
@@ -79,7 +80,20 @@ module.exports = {
             (error, results, fields) => {
                 if(error) {
                     return callBack(error)
-                } return callBack(null, results[0])
+                } return callBack(null, results)
+            }
+        )
+    },
+
+    getUserByUserEmail: (email, callBack) => {
+        pool.query(
+            'select * from registration where email = ?',
+            [email],
+
+            (error, results, fileds) => {
+                if (error){
+                    return callBack(error)
+                } return callBack(null, results[0]);
             }
         )
     }
