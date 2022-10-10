@@ -1,0 +1,14 @@
+{
+  "name": "pension-management-system",
+  "version": "1.0.0",
+  "description": "pension project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "colin osullivan",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
+}
