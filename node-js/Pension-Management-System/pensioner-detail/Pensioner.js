@@ -5,6 +5,7 @@ const ProductSchema = new Schema({
     name: String,
     date_of_birth: String,
     pan: Number,
+    salary_earned: Number,
     allowences: Number,
     self_family_pension: String,
     bank_detail: {
