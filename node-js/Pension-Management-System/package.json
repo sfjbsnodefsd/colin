@@ -9,6 +9,7 @@
   "author": "colin osullivan",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1"
   }
 }
