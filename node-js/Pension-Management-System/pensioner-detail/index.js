@@ -30,12 +30,20 @@ async function connect (){
 connect();
 
 app.post("/pensioner/create", isAuthenticated, async (req,res) => {
+<<<<<<< HEAD
     const{name, date_of_birth, pan, aadhaar, salary_earned, allowences, self_family_pension, bank_detail} = req.body;
     const newPensioner = new Pensioner({
         name,
         date_of_birth, 
         pan,
         aadhaar, 
+=======
+    const{name, date_of_birth, pan, salary_earned, allowences, self_family_pension, bank_detail} = req.body;
+    const newPensioner = new Pensioner({
+        name,
+        date_of_birth, 
+        pan, 
+>>>>>>> 27a6bc9d1aa806f3794348842dd63081f9b9cb6f
         salary_earned, 
         allowences, 
         self_family_pension, 
@@ -45,6 +53,7 @@ app.post("/pensioner/create", isAuthenticated, async (req,res) => {
     return res.json(newPensioner);
 })
 
+<<<<<<< HEAD
 app.get("/pensioner/getall", isAuthenticated, async (req,res) => {
     try {
         const pensioners = await Pensioner.find();
@@ -65,6 +74,8 @@ app.get("/pensioner/getby/:aadhaar",isAuthenticated, async (req,res) =>
     }
 });
 
+=======
+>>>>>>> 27a6bc9d1aa806f3794348842dd63081f9b9cb6f
 app.listen(PORT, () => {
     console.log("product service is working at port 5001");
 })
