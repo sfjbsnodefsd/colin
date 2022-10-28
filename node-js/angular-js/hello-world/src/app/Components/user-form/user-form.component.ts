@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleStrategy } from '@angular/router';
+import User from 'src/app/Entity/User';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-user-form',
@@ -9,15 +11,21 @@ import { TitleStrategy } from '@angular/router';
 export class UserFormComponent implements OnInit {
   title = "fill out form below";
 
-  name = "";
-  age = 0;
-  gender = "";
+  user: User = new User();
 
   save(){
-    console.log(this.name + " " + this.age + " " + this.gender);
+    const observables = this.userService.saveUser(this.user);
+    observables.subscribe(
+      (response: any)=>{
+        console.log(response);
+      },
+      function (error){
+        console.log(error);
+      }
+    );
   }
 
-  constructor() { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
   }

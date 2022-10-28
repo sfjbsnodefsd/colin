@@ -1,10 +1,16 @@
 {
-    "users":[
-        {
-            "name":"Colin",
-            "age":28,
-            "gender":"Male",
-            "id":1
-        }
-    ]
+  "users": [
+    {
+      "name": "Colin",
+      "age": 28,
+      "gender": "Male",
+      "id": 1
+    },
+    {
+      "name": "tim",
+      "age": "20",
+      "gender": "Male",
+      "id": 2
+    }
+  ]
 }

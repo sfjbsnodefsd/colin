@@ -1,0 +1,15 @@
+<h1 style="text-align: center; border-style:grove; border-color: #7959ff;" class="display-2">List of Reistered Users</h1>
+
+<br/>
+
+
+<ul style="margin:20px; border-color: #7959ff; border-style: double;"
+ *ngFor="let u of users; index as i" class="list-group list-group-flush">
+    <li class="list-group-item">
+        <span>Name: {{ u.name }}, </span>
+        <span>Age: {{ u.age }} </span>
+        <br/>
+        <button type="button" style="margin-left: 1020px; color:red; background-color:red;"
+        (click)="deleteRow(u,i)" class="btn-close" aria-label="Close"></button>
+    </li>
+</ul>
