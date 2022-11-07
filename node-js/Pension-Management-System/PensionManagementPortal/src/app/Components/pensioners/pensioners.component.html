@@ -1,0 +1,9 @@
+<h1>List of pensioners</h1>
+
+<ul style="margin:20px ; border-color: #7959FF; border-style: double;" *ngFor="let u of pensioners; index as i" class="list-group list-group-flush">
+    <li class="list-group-item">
+        <span>Name: {{u.name }}</span>
+        <br/>
+        <button type="button" style="margin-left: 1400px ; color: red; background-color: red;"  class="btn-close" aria-label="Close"></button>
+    </li>
+</ul>

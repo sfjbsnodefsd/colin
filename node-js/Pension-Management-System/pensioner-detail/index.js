@@ -7,7 +7,10 @@ const mongoose = require("mongoose");
 const amqp = require("amqplib");
 const Pensioner = require("./pensioner")
 const isAuthenticated = require("../isAuthenticated")
+const cors = require("cors");
+
 app.use(express.json());
+app.use(cors());
 var channel, connection;
 
 mongoose.connect("mongodb://localhost:27017/pensioner-service",{
@@ -48,7 +51,7 @@ app.post("/pensioner/create", isAuthenticated, async (req,res) => {
 })
 
 
-app.get("/pensioner/getall", isAuthenticated, async (req,res) => {
+app.get("/pensioner/getall",  async (req,res) => {
     try {
         const pensioners = await Pensioner.find();
         res.json(pensioners);

@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleStrategy } from '@angular/router';
 import User from 'src/app/Entity/User';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent implements OnInit {
-  title = "fill out form below";
-
+  title = 'Fill out the form below';
+  // to access the data of this variable in out html file use {{variable name}}
   user: User = new User();
 
-  save(){
+  save() {
     const observables = this.userService.saveUser(this.user);
     observables.subscribe(
-      (response: any)=>{
+      (response: any) => {
         console.log(response);
       },
-      function (error){
+      function (error) {
         console.log(error);
       }
     );
@@ -27,7 +26,5 @@ export class UserFormComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
