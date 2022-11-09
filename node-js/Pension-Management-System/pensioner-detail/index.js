@@ -32,7 +32,7 @@ async function connect (){
 
 connect();
 
-app.post("/pensioner/create", isAuthenticated, async (req,res) => {
+app.post("/pensioner/create",  async (req,res) => {
 
     const{name, date_of_birth, pan, aadhaar, salary_earned, allowences, self_family_pension, bank_detail} = req.body;
     const newPensioner = new Pensioner({

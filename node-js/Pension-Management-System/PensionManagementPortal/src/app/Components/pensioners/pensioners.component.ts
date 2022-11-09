@@ -8,12 +8,13 @@ import { PensionerService } from 'src/app/Services/pensioner.service';
   styleUrls: ['./pensioners.component.css']
 })
 export class PensionersComponent implements OnInit {
-  
+  searchText:any;
   pensioners : Pensioner[] = [];
 
   constructor(public pensionerService: PensionerService) {
 
    }
+   
 
   ngOnInit(): void {
     const promise = this.pensionerService.getPensioners();

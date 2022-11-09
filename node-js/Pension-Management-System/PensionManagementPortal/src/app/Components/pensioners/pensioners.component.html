@@ -1,9 +1,39 @@
 <h1>List of pensioners</h1>
+<div>
+    <input class="form" type="text" name="search" [(ngModel)]="searchText" 
+    placeholder="Enter filter">
+    <button onclick="">Search</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Aadhaar</th>
+            <th>DOB</th>
+            <th>PAN</th>
+            <th>Salary Earned</th>
+            <th>Allowences</th>
+            <th>Pension Type</th>
+            <th>Bank Name</th>
+            <th>Acc No.</th>
+            <th>Public or Private</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of pensioners  | filter:searchText">
+            <td>{{u.name}}</td>
+            <td>{{u.aadhaar}}</td>
+            <td>{{u.date_of_birth}}</td>
+            <td>{{u.pan}}</td>
+            <td>{{u.salary_earned}}</td>
+            <td>{{u.allowences}}</td>
+            <td>{{u.self_family_pension}}</td>
+            <td>{{u.bank_detail.bank_name}}</td>
+            <td>{{u.bank_detail.account_number}}</td>
+            <td>{{u.bank_detail.public_or_private}}</td>
 
-<ul style="margin:20px ; border-color: #7959FF; border-style: double;" *ngFor="let u of pensioners; index as i" class="list-group list-group-flush">
-    <li class="list-group-item">
-        <span>Name: {{u.name }}</span>
-        <br/>
-        <button type="button" style="margin-left: 1400px ; color: red; background-color: red;"  class="btn-close" aria-label="Close"></button>
-    </li>
-</ul>
+        </tr>
+    </tbody>
+
+</table>
+
