@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let u of pensioners  | filter:searchText">
+        <tr *ngFor="let u of pensioners  | filter:searchText; index as i">
             <td>{{u.name}}</td>
             <td>{{u.aadhaar}}</td>
             <td>{{u.date_of_birth}}</td>
@@ -31,7 +31,8 @@
             <td>{{u.bank_detail.bank_name}}</td>
             <td>{{u.bank_detail.account_number}}</td>
             <td>{{u.bank_detail.public_or_private}}</td>
-
+            <button type="button" style="margin-left: 10px ; color: red; background-color: red;" 
+            (click)="deleteRow(u,i)" class="btn-close" aria-label="Close"></button>
         </tr>
     </tbody>
 

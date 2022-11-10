@@ -11,6 +11,14 @@ export class PensionersComponent implements OnInit {
   searchText:any;
   pensioners : Pensioner[] = [];
 
+  deleteRow(pensioner:any,index:any){
+    const observables = this.pensionerService.deletePensioner(pensioner);
+    observables.subscribe((response:any) => {
+      console.log(response);
+      this.pensioners.splice(index,1)
+    })
+  }
+
   constructor(public pensionerService: PensionerService) {
 
    }

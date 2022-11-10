@@ -71,7 +71,7 @@ app.get("/pensioner/getby/:aadhaar",isAuthenticated, async (req,res) =>
     }
 });
 
-app.delete("/pensioner/delete/:aadhaar", isAuthenticated, async (req,res) => 
+app.delete("/pensioner/delete/:aadhaar",  async (req,res) => 
 {
     try {
         const pensioners = await Pensioner.remove({aadhaar: req.params.aadhaar});
