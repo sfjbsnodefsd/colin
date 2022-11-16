@@ -19,6 +19,35 @@ export class PensionersComponent implements OnInit {
     })
   }
 
+  getPensionDetail(pensioner:any,index:any){
+    const publicBank = 500;
+    const privateBank = 550;
+    
+    var newPensionAmmount=0;
+    const promise = this.pensionerService.getPensionerProcess(pensioner);
+    promise.subscribe((response) => {
+      console.log(response);
+      if(pensioner.self_family_pension=="family")
+      {
+        newPensionAmmount=((pensioner.salary_earned + pensioner.allowences)*.5);
+      }
+      else {
+        newPensionAmmount=((pensioner.salary_earned + pensioner.allowences)*.8);
+      };
+      
+      if(pensioner.public_or_private=="public"){
+        publicBank;
+      }
+      else{
+        privateBank;
+      }
+      console.log(newPensionAmmount);
+
+    })
+    
+
+  }
+
   constructor(public pensionerService: PensionerService) {
 
    }
@@ -28,6 +57,7 @@ export class PensionersComponent implements OnInit {
     const promise = this.pensionerService.getPensioners();
     promise.subscribe((response) => {
       console.log(response);
+      console.log()
       this.pensioners = response as Pensioner[];
     })
   }

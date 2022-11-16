@@ -5,7 +5,11 @@ const app = express();
 const PORT = 5000;
 const User = require("./User");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
+
 app.use(express.json());
+app.use(cors());
+
 
 
 mongoose.connect("mongodb://localhost:/Autorization" , {

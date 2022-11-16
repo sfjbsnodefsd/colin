@@ -13,16 +13,21 @@
             <a class="nav-link" routerLink="register" href="#">Find Pensioner</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/registered" href="#">Login</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" routerLink="pensioners" href="#">Pensioner List</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="pensioner-form" href="#">Create Pensioner</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" routerLink="pensioner-process" href="#">Process Pensioner</a>
+          </li>
+          <li class="nav-item-active" *ngIf="!isLogged">
+            <a class="nav-link" routerLink="login" href="#" style="text-transform: uppercase;">Login</a>
+          </li>
+          <li class="nav-item-active" *ngIf="isLogged">
+            <a class="nav-link" href="#" style="text-transform: lowercase;" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           
         </ul>

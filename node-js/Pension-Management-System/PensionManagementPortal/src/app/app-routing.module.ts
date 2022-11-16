@@ -3,8 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PensionerService } from './Services/pensioner.service';
 import { PensionersComponent } from './Components/pensioners/pensioners.component';
 import { PensionerFormComponent } from './Components/pensioner-form/pensioner-form.component';
-const routes: Routes = [{path:"pensioners", 
-component:PensionersComponent}, {path:"pensioner-form", component:PensionerFormComponent}];
+import { LoginComponent } from './Components/login/login.component';
+const routes: Routes = [
+{path:"pensioners", component:PensionersComponent}, 
+{path:"pensioner-form", component:PensionerFormComponent},
+{path:"login", component:LoginComponent},];
 
 
 @NgModule({

@@ -8,10 +8,13 @@ const amqp = require("amqplib");
 ///const Product = require("./Product")
 //const isAuthenticated = require("../isAuthenticated")
 const Pensioner = require("./pension")
+const cors = require("cors");
 var updatedPension = 0;
 var bankServiceCharge = 0
 
 app.use(express.json());
+app.use(cors());
+
 
 mongoose.connect(
     "mongodb://localhost:27017/process-service",

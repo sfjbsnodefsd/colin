@@ -51,7 +51,7 @@ app.post("/pensioner/create",  async (req,res) => {
 })
 
 
-app.get("/pensioner/getall",  async (req,res) => {
+app.get("/pensioner/getall",isAuthenticated,  async (req,res) => {
     try {
         const pensioners = await Pensioner.find();
         res.json(pensioners);
@@ -60,7 +60,7 @@ app.get("/pensioner/getall",  async (req,res) => {
     }
 });
 
-app.get("/pensioner/getby/:aadhaar",isAuthenticated, async (req,res) => 
+app.get("/pensioner/getby/:aadhaar", async (req,res) => 
 {
     try {
         const pensioners = await Pensioner.find({aadhaar: req.params.aadhaar},req.body);

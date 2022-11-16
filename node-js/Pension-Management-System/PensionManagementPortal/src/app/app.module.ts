@@ -6,21 +6,24 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { PensionersComponent } from './Components/pensioners/pensioners.component';
 import { PensionerService } from './Services/pensioner.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PensionerFormComponent } from './Components/pensioner-form/pensioner-form.component';
+import { LoginComponent } from './Components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PensionersComponent,
-    PensionerFormComponent
+    PensionerFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     Ng2SearchPipeModule
     
   ],
