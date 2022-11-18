@@ -43,6 +43,6 @@ export class UserService {
   logout(){
     localStorage.removeItem('user-token');
     this.tokenSubject.next(null);
-    this.router.navigate(['/']);
+    this.router.navigate(['/account/login']);
   }
 }

@@ -8,4 +8,4 @@ import Pensioner from './Entity/Pensioner';
 })
 export class AppComponent {
   title = 'PensionManagementPortal';
-  public pensioner! : Pensioner}
+  public pensioner : Pensioner}

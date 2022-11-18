@@ -3,7 +3,7 @@ const express = require("express");
 const  app = express();
 const PORT = process.env.PORT || 5001;
 const mongoose = require("mongoose");
-//const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const amqp = require("amqplib");
 const Pensioner = require("./pensioner")
 const isAuthenticated = require("../isAuthenticated")
@@ -60,7 +60,7 @@ app.get("/pensioner/getall",isAuthenticated,  async (req,res) => {
     }
 });
 
-app.get("/pensioner/getby/:aadhaar", async (req,res) => 
+app.get("/pensioner/getby/:aadhaar",isAuthenticated, async (req,res) => 
 {
     try {
         const pensioners = await Pensioner.find({aadhaar: req.params.aadhaar},req.body);
@@ -71,7 +71,7 @@ app.get("/pensioner/getby/:aadhaar", async (req,res) =>
     }
 });
 
-app.delete("/pensioner/delete/:aadhaar",  async (req,res) => 
+app.delete("/pensioner/delete/:aadhaar", isAuthenticated, async (req,res) => 
 {
     try {
         const pensioners = await Pensioner.remove({aadhaar: req.params.aadhaar});
@@ -83,7 +83,7 @@ app.delete("/pensioner/delete/:aadhaar",  async (req,res) =>
     }
 });
 
-app.put("/pensioner/update/:aadhaar", async (req,res) => {
+app.put("/pensioner/update/:aadhaar", isAuthenticated, async (req,res) => {
     const aadhaar = req.params.aadhaar;
 
     try {

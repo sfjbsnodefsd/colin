@@ -42,7 +42,7 @@ export class PensionersComponent implements OnInit {
         privateBank;
       }
       console.log(newPensionAmmount);
-
+      
     })
     
 
@@ -58,6 +58,7 @@ export class PensionersComponent implements OnInit {
     promise.subscribe((response) => {
       console.log(response);
       console.log()
+      console.log(localStorage.getItem('user-token'));
       this.pensioners = response as Pensioner[];
     })
   }
