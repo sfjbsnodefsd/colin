@@ -5,6 +5,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { UserToken } from '../Entity/UserToken';
 import { map } from 'rxjs';
 
+const PROCESS_URL = 'http://localhost:5000/auth/reg';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -45,4 +48,14 @@ export class UserService {
     this.tokenSubject.next(null);
     this.router.navigate(['/account/login']);
   }
+
+  getUserProcess(user:{
+    name: String;
+    password: String;
+    email: String;
+  }
+  ){
+    return this.http.post(PROCESS_URL, user);
+  }
+
 }

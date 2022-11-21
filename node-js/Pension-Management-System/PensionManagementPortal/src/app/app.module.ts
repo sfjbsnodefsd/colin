@@ -11,13 +11,15 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PensionerFormComponent } from './Components/pensioner-form/pensioner-form.component';
 import { LoginComponent } from './Components/login/login.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { RegisterUserComponent } from './Components/register-user/register-user.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PensionersComponent,
     PensionerFormComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
