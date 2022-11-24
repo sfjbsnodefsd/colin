@@ -10,6 +10,8 @@ import { PensionerService } from 'src/app/Services/pensioner.service';
 export class PensionersComponent implements OnInit {
   searchText:any;
   pensioners : Pensioner[] = [];
+  newPensionAmmount: number;
+  bankType: number;
 
   deleteRow(pensioner:any,index:any){
     const observables = this.pensionerService.deletePensioner(pensioner);
@@ -23,28 +25,32 @@ export class PensionersComponent implements OnInit {
     const publicBank = 500;
     const privateBank = 550;
     
-    var newPensionAmmount=0;
+    
     const promise = this.pensionerService.getPensionerProcess(pensioner);
-    promise.subscribe((response) => {
+    promise.subscribe((response:any) => {
       console.log(response);
       if(pensioner.self_family_pension=="family")
       {
-        newPensionAmmount=((pensioner.salary_earned + pensioner.allowences)*.5);
+       this.newPensionAmmount=((pensioner.salary_earned + pensioner.allowences)*.5);
       }
       else {
-        newPensionAmmount=((pensioner.salary_earned + pensioner.allowences)*.8);
+        this.newPensionAmmount=((pensioner.salary_earned + pensioner.allowences)*.8);
       };
       
       if(pensioner.public_or_private=="public"){
-        publicBank;
+        this.bankType=publicBank;
       }
       else{
-        privateBank;
+        this.bankType=privateBank;
       }
-      console.log(newPensionAmmount);
-      
+      console.log(this.newPensionAmmount);
+      console.log(this.bankType);
+      //return this.newPensionAmmount, this.bankType;
+
     })
-    
+
+    //return ("bank service charge: "+ bankType + ", " + " Pension ammount: " + newPensionAmmount);
+
 
   }
 
@@ -60,7 +66,9 @@ export class PensionersComponent implements OnInit {
       console.log()
       console.log(localStorage.getItem('user-token'));
       this.pensioners = response as Pensioner[];
+      
     })
+    this.getPensionDetail;
   }
 
 }

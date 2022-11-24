@@ -39,14 +39,14 @@ function createPension (pensioners, aadhaar){
     //let bankServiceCharge = 0;
     
     //for(t=0; t<pensioners.length; ++t) {
-        if(pensioners[0].self_family_pension=="self"){
-            newPensionAmmount = ((pensioners[0].salary_earned + pensioners[0].allowences)*.8);
+        if(pensioners.self_family_pension=="self"){
+            newPensionAmmount = ((pensioners.salary_earned + pensioners.allowences)*.8);
         }
-        else if (pensioners[0].self_family_pension=="family"){
-            newPensionAmmount=((pensioners[0].salary_earned + pensioners[0].allowences)*.5);
+        else if (pensioners.self_family_pension=="family"){
+            newPensionAmmount=((pensioners.salary_earned + pensioners.allowences)*.5);
         }
         
-        if(pensioners[0].bank_detail.public_or_private=="public") {
+        if(pensioners.public_or_private=="public") {
             bankServiceCharge = 500;
         }
         else {
