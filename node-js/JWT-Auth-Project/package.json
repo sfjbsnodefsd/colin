@@ -4,7 +4,8 @@
   "description": "node js app that will perform rest api functions and create jwt tokens",
   "main": "app.js",
   "scripts": {
-    "start":"nodemon app.js"
+    "start":"nodemon app.js",
+    "sonar":"sonar-scanner"
   },
   "author": "colin",
   "license": "ISC",
