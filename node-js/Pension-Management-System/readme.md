@@ -4,6 +4,8 @@ mongod in one cmd window
 mongo in the other
 
 nodemon for each microservice
+ng serve for PensionManagementPortal
+http://http://localhost:4200
 
 process pensioner is outputed in the terminal after running 
 http://localhost:5001/pensioner/process/adhaar-number
@@ -40,5 +42,8 @@ syntax:
         "public_or_private": "public"
     }
 }
+
+for front end side need to log in to do anything, create log in credentials and log in (after logging in may need to hit f5 to refresh page sometimes). After logging in can view and create pensioners. Pensioner list will display pensioners, search bar on said page allows for searching pensioners by any field. Red button deletes pensioner, blue button does calculation for pensioner.
+
 
 
